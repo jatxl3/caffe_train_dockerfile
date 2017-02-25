@@ -3,11 +3,6 @@ LABEL maintainer tmpxx123@163.com
 
 WORKDIR /workspace
 
-if [ ${DOWNLOAD_DATA:-1} -eq 1 ]
-    then
-                         fi
-
-
 RUN mkdir -p ./data/mnist && \
     cp -ru $CAFFE_ROOT/data/mnist/get_mnist.sh ./data/mnist/ && \
     ./data/mnist/get_mnist.sh
