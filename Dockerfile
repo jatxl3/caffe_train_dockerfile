@@ -3,6 +3,15 @@ LABEL maintainer tmpxx123@163.com
 
 WORKDIR /workspace
 
+if [ ${DOWNLOAD_DATA:-1} -eq 1 ]
+    then
+                         fi
+
+
+RUN mkdir -p ./data/mnist && \
+    cp -ru $CAFFE_ROOT/data/mnist/get_mnist.sh ./data/mnist/ && \
+    ./data/mnist/get_mnist.sh
+
 RUN mkdir -p ./examples/mnist && \
     cp -ru $CAFFE_ROOT/examples/mnist/create_mnist.sh ./examples/mnist/ && \
     sed -i 's#BUILD=build#BUILD=\$CAFFE_ROOT/build##' ./examples/mnist/create_mnist.sh && \
