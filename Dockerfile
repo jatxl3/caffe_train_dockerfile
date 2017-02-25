@@ -14,7 +14,7 @@ RUN mkdir -p ./examples/cifar10 && \
     sed -i 's#./build#\$CAFFE_ROOT/build##' ./examples/cifar10/create_cifar10.sh && \
     ./examples/cifar10/create_cifar10.sh
 
-RUN du -sh *lmdb
+RUN du -sh *
 
 RUN cp $CAFFE_ROOT/examples/cifar10/cifar10_full_solver*.prototxt ./examples/cifar10/ && \
     cp $CAFFE_ROOT/examples/cifar10/cifar10_full_train_test.prototxt ./examples/cifar10/ && \
