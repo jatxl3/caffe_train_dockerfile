@@ -11,7 +11,7 @@ RUN mkdir -p ./data/cifar10 && \
 
 RUN mkdir -p ./examples/cifar10 && \
     cp -ru $CAFFE_ROOT/examples/cifar10/create_cifar10.sh ./examples/cifar10/ && \
-    sed -i 's#BUILD=build#BUILD=\$CAFFE_ROOT/build##' ./examples/cifar10/create_cifar10.sh && \
+    sed -i 's#./build#\$CAFFE_ROOT/build##' ./examples/cifar10/create_cifar10.sh && \
     ./examples/cifar10/create_cifar10.sh
 
 RUN du -sh *lmdb
